@@ -49,6 +49,8 @@
 		let redo = false;
 		let undo = false;
 		let undoArray = []; 
+		let redoArray = [];
+		let colorPast = [];
 
 		window.onload = function() {
 			var canvas = document.getElementById('myCanvas');
@@ -67,6 +69,7 @@
 				$container: $('#color-palette')
 			}
 
+
 			function myCustomInteraction() {
 				var tool = new paper.Tool();
 
@@ -77,6 +80,7 @@
 				    		// only color in with the most-recent color.
 					 	undoArray.push(hit.item);
 				        hit.item.fillColor = cp.history[cp.history.length - 1];
+						colorPast.push(hit.item.fillColor);
 						$("#undo svg").css({
 							"color": "black"
 						})
@@ -165,8 +169,13 @@
 			$("#undo svg").click(function() {
 				if  (undoArray.length >= 1) {
 					undoItem = undoArray.pop();
-					redoStack.push(undoItem);
 					undoItem.fillColor = "white";
+					redoArray.push(undoItem);
+					if (redoArray.length >= 1) {
+						$("#redo svg").css({
+							"color": "black"
+						})							
+					}
 					if  (undoArray.length === 0) {	
 						$("#undo svg").css({
 							"color": "gray"
@@ -181,6 +190,27 @@
 
 			//Redo
 			$("#redo svg").click(function() {
+				if  (redoArray.length >= 1) {
+					redoItem = redoArray.pop();
+					redoItem.fillColor = colorPast[undoArray.length];
+					undoArray.push(redoItem);
+					if (undoArray.length >= 1) {
+						$("#undo svg").css({
+							"color": "black"
+						})							
+					}
+					if  (redoArray.length === 0) {	
+						$("#redo svg").css({
+							"color": "gray"
+						})	
+					} else {
+						$("#redo svg").css({
+							"color": "black"
+						})	
+					}
+				}
+
+
 			});
 
 		}
