@@ -51,6 +51,7 @@ window.onload = function() {
 					})
 				}
 			} else {
+				// Pencil functionality - https://hammerjs.github.io/getting-started/
 				console.log('pencil');
 				myPath = new paper.Path();
 				myPath.strokeColor = cp.history[cp.history.length - 1];
@@ -88,6 +89,7 @@ window.onload = function() {
 			$swatch.click(function(){
 				// add color to the color palette history
 				cp.history.push($(this).css("background-color"));
+				// TODO: add color to color history modal 
 			});
 			cp.$container.append($swatch);
 		}

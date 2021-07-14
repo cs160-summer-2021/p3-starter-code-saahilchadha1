@@ -23,6 +23,7 @@
 	<script type="text/javascript" canvas="canvas" src="{% static 'coloring/script.js' %}"></script>
 </head>
 <body>
+	<!-- Modal Code from Bootstrap Documentation - https://getbootstrap.com/docs/5.0/components/modal/ -->
 	<!-- Color History Modal -->
 	<div class="modal fade" id="colorHistoryModal" tabindex="-1" aria-labelledby="colorHistoryModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -31,8 +32,9 @@
 			<h5 class="modal-title" id="colorHistoryModalLabel">Color History</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
-			<div class="modal-body">
+			<div class="modal-body" id="colorHistoryModal">
 				[Color swatches here]
+				<!-- TODO -->
 			</div>
 		</div>
 		</div>
