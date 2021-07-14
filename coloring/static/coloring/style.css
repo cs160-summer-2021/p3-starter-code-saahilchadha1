@@ -1,0 +1,86 @@
+#color-palette {
+    /* width: 100%; */
+    background-color: #f1f1f1;
+    display: flex;
+    flex-wrap: wrap;
+    /* position: absolute; */
+    top: 0;
+}
+
+.swatch {
+    width: 24px;
+    height: 24px;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+    margin: 3px;
+}
+
+#myCanvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+html, body, .container {
+	height: 100%;
+}
+
+#row1 {
+	height: 5%;
+	margin-top: 2%;
+}
+
+#undo {
+	text-align: right;
+	padding-right: 10%;
+	color: gray;
+}
+
+#redo {
+	text-align: left;
+	padding-left: 10%;
+	color: gray;
+}
+
+#row2 {
+	height: 5%;
+
+}
+
+#xray {
+	width: 25%;
+	color: black;
+	text-align: center;
+	border: 1px solid rgb(6, 6, 6);
+	border-radius: 0 10px 10px 0;
+	padding: auto;
+	margin: auto;
+	margin-left: 0;
+}
+
+#myCanvas {
+	text-align: center;
+}
+
+#row3 {
+	margin-top: 2%;
+	margin-bottom:5%;
+}
+
+#row4 {
+	height: 10%;
+	margin-bottom: 2%;
+}
+
+#pencil, #bucket{
+	text-align: center;
+	margin: auto;
+
+}
+
+#pencil {
+	color: gray;
+}
