@@ -9,6 +9,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   	<title>P3 Coloring</title>
 
@@ -22,6 +23,49 @@
 	<script type="text/javascript" canvas="canvas" src="{% static 'coloring/script.js' %}"></script>
 </head>
 <body>
+	<!-- Color History Modal -->
+	<div class="modal fade" id="colorHistoryModal" tabindex="-1" aria-labelledby="colorHistoryModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+			<h5 class="modal-title" id="colorHistoryModalLabel">Color History</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				[Color swatches here]
+			</div>
+		</div>
+		</div>
+	</div>
+  <!-- Info Modal -->
+	<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+			<h5 class="modal-title" id="infoModalLabel">Wikipedia</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				The giant panda (Ailuropoda melanoleuca; Chinese: 大熊猫; pinyin: dàxióngmāo), also known as 
+				the panda bear (or simply the panda), is a bear native to South Central China. It is 
+				characterised by its bold black-and-white coat and rotund body.
+			</div>
+			<div class="container mb-2 text-center">
+				<div class="row mb-2">
+					<div class="col">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Grosser_Panda.JPG/800px-Grosser_Panda.JPG" width="100%"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<a class="btn btn-secondary" href="https://en.wikipedia.org/wiki/Giant_panda">Read more</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	
 	<!-- general container -->
 	<div class="container">
 		<!-- first row for undo and redo -->
@@ -40,7 +84,17 @@
 
 		<!-- second row for X-Ray function -->
 		<div class="row" id="row2">
-			<a id="xray">X-Ray</a>
+			<div class="col">
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#colorHistoryModal">
+					<img class="filter-white"  src="{% static 'coloring/icons/history.svg'%}"/>
+				</button>
+				<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#infoModal">
+					<img class="filter-white"  src="{% static 'coloring/icons/info.svg'%}"/>
+				</button>
+			</div>
+			
+
 		</div>
 
 		<!-- third row for the canvas -->
