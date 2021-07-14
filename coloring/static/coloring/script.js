@@ -35,13 +35,17 @@ window.onload = function() {
 				if (hit) {
 						// Color pallette keeps track of the full history of colors, though we
 						// only color in with the most-recent color.
-					undoArray.push(hit.item);
+					undoArray.push({
+						"type": "pour",
+						"item": hit.item,
+						"prev_color": hit.item.fillColor,
+						"next_color": cp.history[cp.history.length - 1]
+					});
 					redoArray = [];
 					$("#redo svg").css({
 						"color": "gray"
 					})
 					hit.item.fillColor = cp.history[cp.history.length - 1];
-					colorPast.push(hit.item.fillColor);
 					$("#undo svg").css({
 						"color": "black"
 					})
@@ -52,7 +56,17 @@ window.onload = function() {
 				myPath.strokeColor = cp.history[cp.history.length - 1];
 				console.log(cp.history[cp.history.length - 1]);
 				myPath.strokeWidth = 5;
-				// console.log(myPath);
+				undoArray.push({
+					"type": "pencil",
+					"item": myPath,
+				});
+				redoArray = [];
+				$("#redo svg").css({
+					"color": "gray"
+				})
+				$("#undo svg").css({
+					"color": "black"
+				})
 			}
 		}
 
@@ -137,11 +151,14 @@ window.onload = function() {
 	});
 
 	//Mouse click Undo: 
-	//TODO: when we repeatedly color one part, click undo once can bring it last color
 	$("#undo svg").click(function() {
 		if  (undoArray.length >= 1) {
 			undoItem = undoArray.pop();
-			undoItem.fillColor = "white";
+			if (undoItem.type === "pour") {
+				undoItem.item.fillColor = undoItem.prev_color;
+			} else {
+				undoItem.item.visible = false;
+			}
 			redoArray.push(undoItem);
 			if (redoArray.length >= 1) {
 				$("#redo svg").css({
@@ -164,7 +181,11 @@ window.onload = function() {
 	$("#redo svg").click(function() {
 		if  (redoArray.length >= 1) {
 			redoItem = redoArray.pop();
-			redoItem.fillColor = colorPast[undoArray.length];
+			if (redoItem.type === "pour") {
+				redoItem.item.fillColor = redoItem.next_color;
+			} else {
+				redoItem.item.visible = true;
+			}
 			undoArray.push(redoItem);
 			if (undoArray.length >= 1) {
 				$("#undo svg").css({
