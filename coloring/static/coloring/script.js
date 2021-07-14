@@ -5,6 +5,7 @@ let undo = false;
 let undoArray = []; 
 let redoArray = [];
 let colorPast = [];
+let colorAppeared = []
 
 window.onload = function() {
 	var canvas = document.getElementById('myCanvas');
@@ -90,6 +91,7 @@ window.onload = function() {
 				// add color to the color palette history
 				cp.history.push($(this).css("background-color"));
 				// TODO: add color to color history modal 
+
 			});
 			cp.$container.append($swatch);
 		}
@@ -206,6 +208,19 @@ window.onload = function() {
 		}
 
 
+	});
+
+	//ColorHistory
+	$("#colorHistoryButton").click(function() {
+		for (let color of cp.history) {
+			if (colorAppeared.includes(color)) {
+				continue;
+			}
+			colorAppeared.push(color);
+			var $swatch = $("<div>").css("background-color", color)
+								.addClass("swatch");
+			$("#currentColorHistory").append($swatch);
+		}
 	});
 
 }

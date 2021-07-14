@@ -1,11 +1,16 @@
 {
     "red": "red",
-    "yellow": "yellow",
-    "blue": "blue",
+    "crimson": "crimson",
     "orange": "orange",
+    "darkorange": "darkorange",
+    "gold": "gold",
+    "yellow": "yellow",
+    "CornflowerBlue": "CornflowerBlue ",
+    "blue": "blue",
     "green": "green",
     "violet": "violet",
+    "DarkViolet": "DarkViolet",
     "brown": "brown",
-    "black": "black",
-    "gray": "gray"
+    "gray": "gray",
+    "black": "black"
   }

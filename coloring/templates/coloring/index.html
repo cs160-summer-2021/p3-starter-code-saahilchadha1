@@ -32,9 +32,7 @@
 			<h5 class="modal-title" id="colorHistoryModalLabel">Color History</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
-			<div class="modal-body" id="colorHistoryModal">
-				[Color swatches here]
-				<!-- TODO -->
+			<div class="modal-body" id="currentColorHistory" style="display:flex; flex-wrap:wrap">
 			</div>
 		</div>
 		</div>
@@ -48,19 +46,19 @@
 			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-				The giant panda (Ailuropoda melanoleuca; Chinese: 大熊猫; pinyin: dàxióngmāo), also known as 
-				the panda bear (or simply the panda), is a bear native to South Central China. It is 
-				characterised by its bold black-and-white coat and rotund body.
+				A mandala is a geometric configuration of symbols. In various spiritual traditions, 
+				mandalas may be employed for focusing attention of practitioners and adepts, 
+				as a spiritual guidance tool, for establishing a sacred space and as an aid to meditation and trance induction.
 			</div>
 			<div class="container mb-2 text-center">
 				<div class="row mb-2">
 					<div class="col">
-						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Grosser_Panda.JPG/800px-Grosser_Panda.JPG" width="100%"/>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Manjuvajramandala_con_43_divinit%C3%A0_-_Unknown_-_Google_Cultural_Institute.jpg/800px-Manjuvajramandala_con_43_divinit%C3%A0_-_Unknown_-_Google_Cultural_Institute.jpg" width="100%"/>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
-						<a class="btn btn-secondary" href="https://en.wikipedia.org/wiki/Giant_panda">Read more</a>
+						<a class="btn btn-secondary" href="https://en.wikipedia.org/wiki/Mandala">Read more</a>
 					</div>
 				</div>
 			</div>
@@ -88,7 +86,7 @@
 		<div class="row" id="row2">
 			<div class="col">
 				<!-- Button trigger modal -->
-				<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#colorHistoryModal">
+				<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#colorHistoryModal" id="colorHistoryButton">
 					<img class="filter-white"  src="{% static 'coloring/icons/history.svg'%}"/>
 				</button>
 				<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#infoModal">
