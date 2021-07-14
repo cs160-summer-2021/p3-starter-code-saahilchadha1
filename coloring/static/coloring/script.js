@@ -90,7 +90,7 @@ window.onload = function() {
 			$swatch.click(function(){
 				// add color to the color palette history
 				cp.history.push($(this).css("background-color"));
-				// TODO: add color to color history modal 
+				// $(this).css("border","10px solid black");
 
 			});
 			cp.$container.append($swatch);
