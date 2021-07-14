@@ -79,6 +79,10 @@
 				    		// Color pallette keeps track of the full history of colors, though we
 				    		// only color in with the most-recent color.
 					 	undoArray.push(hit.item);
+						redoArray = [];
+						$("#redo svg").css({
+							"color": "gray"
+						})
 				        hit.item.fillColor = cp.history[cp.history.length - 1];
 						colorPast.push(hit.item.fillColor);
 						$("#undo svg").css({
